@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FlipmeService } from 'src/app/services/flipme.service';
-import decode from 'jwt-decode';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { AppComponent } from 'src/app/app.component';
-import { GtagEvent } from 'src/app/models/gtag-event';
-import { SharedService } from 'src/app/services/shared.service';
-import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
-import { ResponsePagination } from 'src/app/models/response-pagination';
-import { ResponseArray } from 'src/app/models/response-array';
-import { ResponseObject } from 'src/app/models/response-object';
-import { Decks } from 'src/app/models/decks';
+import { Component, OnInit } from '@angular/core'
+import { FlipmeService } from 'src/app/services/flipme.service'
+import decode from 'jwt-decode'
+import { NgxSpinnerService } from 'ngx-spinner'
+import { AppComponent } from 'src/app/app.component'
+import { GtagEvent } from 'src/app/models/gtag-event'
+import { SharedService } from 'src/app/services/shared.service'
+import { NavbarComponent } from 'src/app/shared/navbar/navbar.component'
+import { ResponsePagination } from 'src/app/models/response-pagination'
+import { ResponseArray } from 'src/app/models/response-array'
+import { ResponseObject } from 'src/app/models/response-object'
+import { Decks } from 'src/app/models/decks'
 
 @Component({
   selector: 'app-dashboard',
@@ -18,11 +18,11 @@ import { Decks } from 'src/app/models/decks';
 })
 export class DashboardComponent implements OnInit {
 
-  name: string = "N/D";
-  decks: Decks[] = [];
+  name: string = "N/D"
+  decks: Decks[] = []
 
-  currentPage: number = 1;
-  dataPagination: ResponsePagination | undefined;
+  currentPage: number = 1
+  dataPagination?: ResponsePagination
 
   constructor(
     private flipMeService: FlipmeService,
@@ -32,9 +32,9 @@ export class DashboardComponent implements OnInit {
     private navbar: NavbarComponent) { }
 
   ngOnInit(): void {
-    this.setVisitPage();
-    this.getMyDecks(this.currentPage);
-    this.loadPersonalData();
+    this.setVisitPage()
+    this.getMyDecks(this.currentPage)
+    this.loadPersonalData()
   }
 
   private setVisitPage(): void {
@@ -47,12 +47,12 @@ export class DashboardComponent implements OnInit {
       }
     }
 
-    this.app.setEventAnalytics(gtagEvent);
+    this.app.setEventAnalytics(gtagEvent)
   }
 
   getMyDecks = (page: number): void => {
 
-    this.spinner.show();
+    this.spinner.show()
 
     this.flipMeService.getDashboard(this.shared.getIdUser(), page)
       .subscribe((result: ResponseObject) => {
@@ -68,18 +68,18 @@ export class DashboardComponent implements OnInit {
           this.spinner.hide()
         }
       }, () => {
-        this.app.tokenExpiredToast();
-        this.navbar.signOut();
-        this.spinner.hide();
-      });
+        this.app.tokenExpiredToast()
+        this.navbar.signOut()
+        this.spinner.hide()
+      })
   }
 
   private loadPersonalData(): void {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token')
 
     if (token !== undefined) {
-      const tokenPayload: any = decode(token!);
-      this.name = tokenPayload.name;
+      const tokenPayload: any = decode(token!)
+      this.name = tokenPayload.name
     }
   }
 }

@@ -19,7 +19,7 @@ import { ResponseObject } from 'src/app/models/response-object'
 })
 export class AddCardComponent implements OnInit {
 
-  idDeck: number | undefined
+  idDeck?: number
   today: string = moment().format()
 
   cardForm: FormGroup = new FormGroup({})

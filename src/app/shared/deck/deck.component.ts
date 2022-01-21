@@ -1,12 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Decks } from 'src/app/models/decks';
-import { FlipmeService } from 'src/app/services/flipme.service';
-import { environment } from 'src/environments/environment';
+import { Component, Input, OnInit } from '@angular/core'
+import { Decks } from 'src/app/models/decks'
+import { FlipmeService } from 'src/app/services/flipme.service'
+import { environment } from 'src/environments/environment'
 
-import * as moment from 'moment';
-import Swal from 'sweetalert2';
-import { AppComponent } from 'src/app/app.component';
-import { GtagEvent } from 'src/app/models/gtag-event';
+import * as moment from 'moment'
+import Swal from 'sweetalert2'
+import { AppComponent } from 'src/app/app.component'
+import { GtagEvent } from 'src/app/models/gtag-event'
 
 @Component({
   selector: 'app-deck',
@@ -15,14 +15,14 @@ import { GtagEvent } from 'src/app/models/gtag-event';
 })
 export class DeckComponent implements OnInit {
 
-  @Input() redirect: string | undefined;
-  @Input() deck: Decks = new Decks();
-  @Input() edition: boolean = false;
-  @Input() getMyDecks: any;
+  @Input() redirect?: string
+  @Input() deck: Decks = new Decks()
+  @Input() edition: boolean = false
+  @Input() getMyDecks: any
 
-  today: string = moment().format();
+  today: string = moment().format()
 
-  urlServer: string = environment.url;
+  urlServer: string = environment.url
 
   constructor(
     private flipMeService: FlipmeService,
@@ -52,7 +52,7 @@ export class DeckComponent implements OnInit {
                 '¡Eliminado!',
                 'La baraja ha sido eliminada exitosamente.',
                 'success'
-              );
+              )
 
               const gtagEvent: GtagEvent = {
                 name_event: 'delete_deck',
@@ -63,11 +63,11 @@ export class DeckComponent implements OnInit {
                 }
               }
 
-              this.app.setEventAnalytics(gtagEvent);
+              this.app.setEventAnalytics(gtagEvent)
 
-              this.getMyDecks();
+              this.getMyDecks()
             }
-          });
+          })
       }
     })
   }
@@ -83,16 +83,16 @@ export class DeckComponent implements OnInit {
       }
     }
 
-    this.app.setEventAnalytics(gtagEvent);
+    this.app.setEventAnalytics(gtagEvent)
 
-    var input = document.body.appendChild(document.createElement("input"));
-    input.value = `${environment.urlFront}deck/${deck.id}/${this.convertNameToUrl(deck.name!)}`;
-    input.focus();
-    input.select();
-    document.execCommand('copy');
-    input.parentNode?.removeChild(input);
+    var input = document.body.appendChild(document.createElement("input"))
+    input.value = `${environment.urlFront}deck/${deck.id}/${this.convertNameToUrl(deck.name!)}`
+    input.focus()
+    input.select()
+    document.execCommand('copy')
+    input.parentNode?.removeChild(input)
 
-    this.app.successToast("Enlace copiado exitosamente");
+    this.app.successToast("Enlace copiado exitosamente")
   }
 
   convertNameToUrl = (name: string): string => name?.replace(" ", "-").toLowerCase()

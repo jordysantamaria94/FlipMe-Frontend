@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { PreviewDeck } from 'src/app/models/preview-deck';
+import { Component, Input, OnInit } from '@angular/core'
+import { PreviewDeck } from 'src/app/models/preview-deck'
 
-import * as moment from 'moment';
-import Swal from 'sweetalert2';
-import { FlipmeService } from 'src/app/services/flipme.service';
-import { AppComponent } from 'src/app/app.component';
-import { GtagEvent } from 'src/app/models/gtag-event';
+import * as moment from 'moment'
+import Swal from 'sweetalert2'
+import { FlipmeService } from 'src/app/services/flipme.service'
+import { AppComponent } from 'src/app/app.component'
+import { GtagEvent } from 'src/app/models/gtag-event'
 
 @Component({
   selector: 'app-card-preview',
@@ -14,11 +14,11 @@ import { GtagEvent } from 'src/app/models/gtag-event';
 })
 export class CardPreviewComponent implements OnInit {
 
-  @Input() preview: any | undefined;
-  @Input() edition: boolean = false;
+  @Input() preview?: any
+  @Input() edition: boolean = false
   @Input() removeElement: any
 
-  today: string = moment().format();
+  today: string = moment().format()
 
   constructor(
     private flipMeService: FlipmeService,
@@ -59,7 +59,7 @@ export class CardPreviewComponent implements OnInit {
                 }
               }
           
-              this.app.setEventAnalytics(gtagEvent);
+              this.app.setEventAnalytics(gtagEvent)
 
               Swal.fire(
                 '¡Eliminado!',
@@ -67,7 +67,7 @@ export class CardPreviewComponent implements OnInit {
                 'success'
               )
             }
-          });
+          })
       }
     })
   }

@@ -62,7 +62,7 @@ export class MainComponent implements OnInit {
         }
       }, () => {
         this.spinner.hide()
-      });
+      })
   }
 
 }

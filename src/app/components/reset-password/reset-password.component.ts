@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { FlipmeService } from 'src/app/services/flipme.service';
-import decode from 'jwt-decode';
-import * as moment from 'moment';
+import { Component, OnInit } from '@angular/core'
+import { NgForm } from '@angular/forms'
+import { ActivatedRoute, Router } from '@angular/router'
+import { NgxSpinnerService } from 'ngx-spinner'
+import { FlipmeService } from 'src/app/services/flipme.service'
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-reset-password',
@@ -13,8 +12,8 @@ import * as moment from 'moment';
 })
 export class ResetPasswordComponent implements OnInit {
 
-  today: string = moment().format();
-  token: string | undefined;
+  today: string = moment().format()
+  token?: string
 
   constructor(
     private spinner: NgxSpinnerService, 
@@ -24,11 +23,11 @@ export class ResetPasswordComponent implements OnInit {
 
       this.route.queryParams.subscribe(param => {
         if (param.code) {
-          this.token = param.code;
+          this.token = param.code
         } else {
-          this.router.navigate(['signin']);
+          this.router.navigate(['signin'])
         }
-      });
+      })
     }
 
   ngOnInit(): void {
@@ -36,7 +35,7 @@ export class ResetPasswordComponent implements OnInit {
 
   updatePassword(sendForm: NgForm): void {
 
-    this.spinner.show();
+    this.spinner.show()
 
     if (sendForm.value.new === sendForm.value.repeat) {
 
@@ -47,12 +46,12 @@ export class ResetPasswordComponent implements OnInit {
 
       this.flipMeService.updatePasswordForgot(form)
         .subscribe(response => {
-          this.spinner.hide();
-          console.log(response);
-          this.router.navigate(['signin']);
-        });
+          this.spinner.hide()
+          console.log(response)
+          this.router.navigate(['signin'])
+        })
     } else {
-      this.spinner.hide();
+      this.spinner.hide()
     }
   }
 

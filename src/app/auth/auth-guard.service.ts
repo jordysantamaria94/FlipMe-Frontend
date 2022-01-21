@@ -1,6 +1,6 @@
-import { Injectable, Injector } from '@angular/core';
-import { Router } from '@angular/router';
-import { FlipmeService } from '../services/flipme.service';
+import { Injectable, Injector } from '@angular/core'
+import { Router } from '@angular/router'
+import { FlipmeService } from '../services/flipme.service'
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +11,13 @@ export class AuthGuardService {
 
   canActivate(): boolean {
     
-    const injector = this.injector.get(FlipmeService);
+    const injector = this.injector.get(FlipmeService)
 
     if (!injector.isAuthenticated()) {
-      return true;
+      return true
     } else {
-      this.router.navigate(['user/dashboard']);
-      return false;
+      this.router.navigate(['user/dashboard'])
+      return false
     }
   }
 }

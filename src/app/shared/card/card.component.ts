@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { CardPlay } from 'src/app/models/card-play';
+import { Component, Input, OnInit } from '@angular/core'
+import { CardPlay } from 'src/app/models/card-play'
 
 @Component({
   selector: 'app-card',
@@ -8,15 +8,15 @@ import { CardPlay } from 'src/app/models/card-play';
 })
 export class CardComponent implements OnInit {
 
-  @Input() questionCard: CardPlay | undefined;
-  @Input() answers: any;
-  @Input() checkAnswer: any;
-  @Input() showAnswer: boolean = false;
-  @Input() answer: string | undefined;
-  @Input() nextQuestion: any;
+  @Input() questionCard?: CardPlay
+  @Input() answers: any
+  @Input() checkAnswer: any
+  @Input() showAnswer: boolean = false
+  @Input() answer?: string
+  @Input() nextQuestion: any
 
-  correct: string | undefined;
-  incorrect: string | undefined;
+  correct?: string
+  incorrect?: string
 
   constructor() { }
 
@@ -25,14 +25,14 @@ export class CardComponent implements OnInit {
   answerIsTrue(isTrue: boolean, index: number): void {
 
     if (isTrue) {
-      this.correct = this.answers[index].answer;
+      this.correct = this.answers[index].answer
     } else {
-      const tempAnswer = this.answers.find((answer: any) => answer.is_true === true);
-      this.correct = tempAnswer.answer;
-      this.incorrect = this.answers[index].answer;
+      const tempAnswer = this.answers.find((answer: any) => answer.is_true === true)
+      this.correct = tempAnswer.answer
+      this.incorrect = this.answers[index].answer
     }
 
-    this.checkAnswer(isTrue);
+    this.checkAnswer(isTrue)
   }
 
 }

@@ -16,10 +16,10 @@ import { environment } from 'src/environments/environment'
 })
 export class DeckInfoComponent implements OnInit {
 
-  id: number | undefined
-  title: string | undefined
-  description: string | undefined
-  createdby: string | undefined
+  id?: number
+  title?: string
+  description?: string
+  createdby?: string
   cardsPreview: PreviewDeck[] = []
 
   urlServer: string = environment.url

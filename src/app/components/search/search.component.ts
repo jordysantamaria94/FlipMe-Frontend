@@ -12,7 +12,7 @@ import { FlipmeService } from 'src/app/services/flipme.service'
 })
 export class SearchComponent implements OnInit {
 
-  search: string | undefined
+  search?: string
   decks: Decks[] = []
 
   constructor(private route: ActivatedRoute, 
@@ -44,7 +44,7 @@ export class SearchComponent implements OnInit {
 
       }, () => {
         this.spinner.hide()
-      });
+      })
   }
 
 }

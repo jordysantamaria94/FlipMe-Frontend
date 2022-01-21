@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { AppComponent } from 'src/app/app.component';
-import { GtagEvent } from 'src/app/models/gtag-event';
-import { ResponseObject } from 'src/app/models/response-object';
-import { FlipmeService } from 'src/app/services/flipme.service';
-import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
-import { environment } from 'src/environments/environment';
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+import { NgxSpinnerService } from 'ngx-spinner'
+import { AppComponent } from 'src/app/app.component'
+import { GtagEvent } from 'src/app/models/gtag-event'
+import { ResponseObject } from 'src/app/models/response-object'
+import { FlipmeService } from 'src/app/services/flipme.service'
+import { NavbarComponent } from 'src/app/shared/navbar/navbar.component'
+import { environment } from 'src/environments/environment'
 
 @Component({
   selector: 'app-general-cards',
@@ -15,17 +15,17 @@ import { environment } from 'src/environments/environment';
 })
 export class GeneralCardsComponent implements OnInit {
 
-  idDeck: number | undefined;
-  nameDeck: string | undefined;
-  descriptionDeck: string | undefined;
-  imageDeck: string | undefined;
+  idDeck?: number
+  nameDeck?: string
+  descriptionDeck?: string
+  imageDeck?: string
 
-  urlServer: string = environment.url;
+  urlServer: string = environment.url
 
-  cards: any[] = [];
+  cards: any[] = []
 
-  currentPage: number = 1;
-  dataPagination: any = [];
+  currentPage: number = 1
+  dataPagination: any = []
 
   constructor(
     private flipMeService: FlipmeService,
@@ -37,11 +37,11 @@ export class GeneralCardsComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.params.subscribe(param => {
-      this.idDeck = param.deck;
+      this.idDeck = param.deck
 
-      this.setVisitPage();
-      this.getDeckInfo();
-      this.getCardsDeck(this.currentPage);
+      this.setVisitPage()
+      this.getDeckInfo()
+      this.getCardsDeck(this.currentPage)
     })
   }
 
@@ -55,25 +55,25 @@ export class GeneralCardsComponent implements OnInit {
       }
     }
 
-    this.app.setEventAnalytics(gtagEvent);
+    this.app.setEventAnalytics(gtagEvent)
   }
 
   private getDeckInfo(): void {
 
-    this.spinner.show();
+    this.spinner.show()
 
     this.flipMeService.getDeckInfo(this.idDeck!)
       .subscribe((result: ResponseObject) => {
         if (result.success) {
-          this.nameDeck = result.response.name;
-          this.descriptionDeck = result.response.description;
-          this.imageDeck = result.response.image;
+          this.nameDeck = result.response.name
+          this.descriptionDeck = result.response.description
+          this.imageDeck = result.response.image
         }
       }, () => {
-        this.app.tokenExpiredToast();
-        this.navbar.signOut();
-        this.spinner.hide();
-      });
+        this.app.tokenExpiredToast()
+        this.navbar.signOut()
+        this.spinner.hide()
+      })
   }
 
   getCardsDeck = (page: number): void => {
@@ -81,16 +81,16 @@ export class GeneralCardsComponent implements OnInit {
       .subscribe((result: ResponseObject) => {
 
         if (result.success) {
-          this.dataPagination = result.response;
-          this.cards = result.response.data;
+          this.dataPagination = result.response
+          this.cards = result.response.data
         }
 
-        this.spinner.hide();
+        this.spinner.hide()
       }, err => {
-        this.app.tokenExpiredToast();
-        this.navbar.signOut();
-        this.spinner.hide();
-      });
+        this.app.tokenExpiredToast()
+        this.navbar.signOut()
+        this.spinner.hide()
+      })
   }
 
   removeElement = (id: number): void => {

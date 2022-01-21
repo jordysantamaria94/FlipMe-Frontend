@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { SocialAuthService } from "angularx-social-login";
-import { FacebookLoginProvider, GoogleLoginProvider } from 'angularx-social-login';
-import { FlipmeService } from 'src/app/services/flipme.service';
-import { SharedService } from 'src/app/services/shared.service';
-import { AppComponent } from 'src/app/app.component';
+import { Component, OnInit } from '@angular/core'
+import { NgForm } from '@angular/forms'
+import { Router } from '@angular/router'
+import { SocialAuthService } from "angularx-social-login"
+import { FacebookLoginProvider, GoogleLoginProvider } from 'angularx-social-login'
+import { FlipmeService } from 'src/app/services/flipme.service'
+import { SharedService } from 'src/app/services/shared.service'
+import { AppComponent } from 'src/app/app.component'
 
-import * as moment from 'moment';
-import { Sign } from 'src/app/models/sign';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { GtagEvent } from 'src/app/models/gtag-event';
-import { Error } from 'src/app/models/error';
+import * as moment from 'moment'
+import { Sign } from 'src/app/models/sign'
+import { NgxSpinnerService } from 'ngx-spinner'
+import { GtagEvent } from 'src/app/models/gtag-event'
+import { Error } from 'src/app/models/error'
 
 declare var require: any
 
@@ -22,7 +22,7 @@ declare var require: any
 })
 export class SignupComponent implements OnInit {
 
-  today: string = moment().format();
+  today: string = moment().format()
 
   constructor(
     private authService: SocialAuthService,
@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
     private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
-    this.setVisitPage();
+    this.setVisitPage()
     this.authService.authState.subscribe((user) => {
 
       const form: Sign = {
@@ -45,8 +45,8 @@ export class SignupComponent implements OnInit {
         created_at: this.today
       }
 
-      this.recordUser(form);
-    });
+      this.recordUser(form)
+    })
   }
 
   private setVisitPage() {
@@ -59,30 +59,30 @@ export class SignupComponent implements OnInit {
       }
     }
 
-    this.app.setEventAnalytics(gtagEvent);
+    this.app.setEventAnalytics(gtagEvent)
   }
 
   signUp(sendForm: NgForm): void {
 
-    this.spinner.show();
+    this.spinner.show()
 
     if (sendForm.value.name !== "" && sendForm.value.email !== "" && sendForm.value.password !== "") {
 
-      let form: Sign = sendForm.value;
+      let form: Sign = sendForm.value
 
-      form.is_social = 0;
-      form.social = "";
-      form.created_at = this.today;
+      form.is_social = 0
+      form.social = ""
+      form.created_at = this.today
 
-      this.recordUser(form);
+      this.recordUser(form)
     } else {
 
-      this.spinner.hide();
+      this.spinner.hide()
 
       this.app.Toast.fire({
         icon: 'warning',
         title: "Es necesario llenar todos los campos"
-      });
+      })
     }
   }
 
@@ -91,33 +91,33 @@ export class SignupComponent implements OnInit {
       .subscribe((res: any) => {
         if (res.success) {
 
-          this.setSignupActionAnalytic();
+          this.setSignupActionAnalytic()
 
           this.app.Toast.fire({
             icon: 'success',
             title: "Te has registrado exitosamente"
-          });
+          })
 
-          const sign = require('jwt-encode');
-          const secret = '$FlipMe@JS2021#';
-          const jwt = sign(res.user, secret);
+          const sign = require('jwt-encode')
+          const secret = '$FlipMe@JS2021#'
+          const jwt = sign(res.user, secret)
 
-          localStorage.setItem('tkn', res.access_token);
-          localStorage.setItem('token', jwt);
+          localStorage.setItem('tkn', res.access_token)
+          localStorage.setItem('token', jwt)
 
-          this.shared.broadcastLoggedStream(true);
-          this.spinner.hide();
-          this.route.navigate(['user/dashboard']);
+          this.shared.broadcastLoggedStream(true)
+          this.spinner.hide()
+          this.route.navigate(['user/dashboard'])
         }
       }, (err: Error) => {
 
-        this.spinner.hide();
+        this.spinner.hide()
 
         this.app.Toast.fire({
           icon: 'error',
           title: (err.error?.errors) ? err.error.errors.email![0] : err.error!.message
-        });
-      });
+        })
+      })
   }
 
   private setSignupActionAnalytic(): void {
@@ -130,19 +130,19 @@ export class SignupComponent implements OnInit {
       }
     }
 
-    this.app.setEventAnalytics(gtagEvent);
+    this.app.setEventAnalytics(gtagEvent)
   }
 
   signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID)
   }
 
   signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID)
   }
 
   signOut(): void {
-    this.authService.signOut();
+    this.authService.signOut()
   }
 
 }

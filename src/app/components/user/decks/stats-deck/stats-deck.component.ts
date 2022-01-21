@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import * as moment from 'moment';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { AppComponent } from 'src/app/app.component';
-import { GtagEvent } from 'src/app/models/gtag-event';
-import { ResponseArray } from 'src/app/models/response-array';
-import { ResponseObject } from 'src/app/models/response-object';
-import { ResponsePagination } from 'src/app/models/response-pagination';
-import { FlipmeService } from 'src/app/services/flipme.service';
-import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+import * as moment from 'moment'
+import { NgxSpinnerService } from 'ngx-spinner'
+import { AppComponent } from 'src/app/app.component'
+import { GtagEvent } from 'src/app/models/gtag-event'
+import { ResponseArray } from 'src/app/models/response-array'
+import { ResponseObject } from 'src/app/models/response-object'
+import { ResponsePagination } from 'src/app/models/response-pagination'
+import { FlipmeService } from 'src/app/services/flipme.service'
+import { NavbarComponent } from 'src/app/shared/navbar/navbar.component'
 
 @Component({
   selector: 'app-stats-deck',
@@ -17,16 +17,16 @@ import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
 })
 export class StatsDeckComponent implements OnInit {
 
-  idDeck: number | undefined;
-  nameDeck: string | undefined;
-  descriptionDeck: string | undefined;
-  imageDeck: string | undefined;
+  idDeck?: number
+  nameDeck?: string
+  descriptionDeck?: string
+  imageDeck?: string
 
-  stats: any[] = [];
-  cards: number = 0;
+  stats: any[] = []
+  cards: number = 0
 
-  currentPage: number = 1;
-  dataPagination: any = [];
+  currentPage: number = 1
+  dataPagination: any = []
 
   constructor(
     private flipMeService: FlipmeService,
@@ -38,12 +38,12 @@ export class StatsDeckComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(param => {
-      this.idDeck = param.deck;
+      this.idDeck = param.deck
 
-      this.setVisitPage();
-      this.getDeckInfo();
-      this.getAllStatsDeck(this.currentPage);
-      this.getCardsDeck(this.currentPage);
+      this.setVisitPage()
+      this.getDeckInfo()
+      this.getAllStatsDeck(this.currentPage)
+      this.getCardsDeck(this.currentPage)
     })
   }
 
@@ -57,25 +57,25 @@ export class StatsDeckComponent implements OnInit {
       }
     }
 
-    this.app.setEventAnalytics(gtagEvent);
+    this.app.setEventAnalytics(gtagEvent)
   }
 
   private getDeckInfo(): void {
 
-    this.spinner.show();
+    this.spinner.show()
 
     this.flipMeService.getDeckInfo(this.idDeck!)
       .subscribe((result: ResponseObject) => {
         if (result.success) {
-          this.nameDeck = result.response.name;
-          this.descriptionDeck = result.response.description;
-          this.imageDeck = result.response.image;
+          this.nameDeck = result.response.name
+          this.descriptionDeck = result.response.description
+          this.imageDeck = result.response.image
         }
       }, err => {
-        this.app.tokenExpiredToast();
-        this.navbar.signOut();
-        this.spinner.hide();
-      });
+        this.app.tokenExpiredToast()
+        this.navbar.signOut()
+        this.spinner.hide()
+      })
   }
 
   getAllStatsDeck = (page: number): void => {
@@ -95,10 +95,10 @@ export class StatsDeckComponent implements OnInit {
         }
 
       }, () => {
-        this.app.tokenExpiredToast();
-        this.navbar.signOut();
-        this.spinner.hide();
-      });
+        this.app.tokenExpiredToast()
+        this.navbar.signOut()
+        this.spinner.hide()
+      })
   }
 
   getCardsDeck = (page: number): void => {
@@ -107,21 +107,21 @@ export class StatsDeckComponent implements OnInit {
       .subscribe((result: ResponseObject) => {
 
         if (result.success) {
-          this.cards = result.response.data.length;
-          this.spinner.hide();
+          this.cards = result.response.data.length
+          this.spinner.hide()
         } else {
-          this.spinner.hide();
+          this.spinner.hide()
         }
         
       }, err => {
-        this.app.tokenExpiredToast();
-        this.navbar.signOut();
-        this.spinner.hide();
-      });
+        this.app.tokenExpiredToast()
+        this.navbar.signOut()
+        this.spinner.hide()
+      })
   }
 
   convertDate(date: string): string {
-    console.log(date);
-    return moment(date).format('DD MMMM YYYY') + " a las " + moment(date).format('h:mm a');
+    console.log(date)
+    return moment(date).format('DD MMMM YYYY') + " a las " + moment(date).format('h:mm a')
   }
 }

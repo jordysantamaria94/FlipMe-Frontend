@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-footer',
@@ -7,20 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  cookies: boolean = true;
+  cookies: boolean = true
 
   constructor() { }
 
   ngOnInit(): void {
     if (localStorage.getItem("_c_fm")) {
-      this.cookies = false;
+      this.cookies = false
     } else {
-      localStorage.setItem("_c_fm", "true");
+      localStorage.setItem("_c_fm", "true")
     }
   }
 
   closeCookies(): void {
-    this.cookies = false;
+    this.cookies = false
   }
 
 }

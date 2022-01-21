@@ -15,7 +15,7 @@ import { NavbarComponent } from 'src/app/shared/navbar/navbar.component'
 })
 export class ConfigurationComponent implements OnInit {
 
-  id: number | undefined
+  id?: number
 
   userForm: FormGroup = new FormGroup({})
 

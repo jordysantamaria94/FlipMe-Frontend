@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { AppComponent } from 'src/app/app.component';
-import { FlipmeService } from 'src/app/services/flipme.service';
-import * as moment from 'moment';
+import { Component, OnInit } from '@angular/core'
+import { NgForm } from '@angular/forms'
+import { Router } from '@angular/router'
+import { NgxSpinnerService } from 'ngx-spinner'
+import { AppComponent } from 'src/app/app.component'
+import { FlipmeService } from 'src/app/services/flipme.service'
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-forgot-password',
@@ -13,7 +13,7 @@ import * as moment from 'moment';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  today: string = moment().format();
+  today: string = moment().format()
 
   constructor(
     private spinner: NgxSpinnerService, 
@@ -26,7 +26,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   recover(sendForm: NgForm): void {
 
-    this.spinner.show();
+    this.spinner.show()
 
     if (sendForm.value.email !== "") {
 
@@ -38,21 +38,21 @@ export class ForgotPasswordComponent implements OnInit {
       this.flipMeService.forgotPassword(form)
         .subscribe((res: any) => {
           if (res.success) {
-            this.spinner.hide();
-            this.router.navigate(['signin']);
+            this.spinner.hide()
+            this.router.navigate(['signin'])
           } else {
-            this.spinner.hide();
+            this.spinner.hide()
           }
-        });
+        })
       
     } else {
 
-      this.spinner.hide();
+      this.spinner.hide()
 
       this.app.Toast.fire({
         icon: 'warning',
         title: "Es necesario llenar todos los campos"
-      });
+      })
     }
   }
 

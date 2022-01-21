@@ -20,7 +20,7 @@ import { FormDeck } from 'src/app/models/forms/form-deck'
 })
 export class UpdateDeckComponent implements OnInit {
 
-  idDeck: number | undefined
+  idDeck?: number
   file: any
   today: string = moment().format()
 

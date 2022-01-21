@@ -20,7 +20,7 @@ import { FormCard } from 'src/app/models/forms/form-card'
 })
 export class UpdateCardComponent implements OnInit {
 
-  idCard: number | undefined
+  idCard?: number
   cardForm: FormGroup = new FormGroup({})
   today: string = moment().format()
 

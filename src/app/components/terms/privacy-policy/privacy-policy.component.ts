@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AppComponent } from 'src/app/app.component';
-import { GtagEvent } from 'src/app/models/gtag-event';
+import { Component, OnInit } from '@angular/core'
+import { AppComponent } from 'src/app/app.component'
+import { GtagEvent } from 'src/app/models/gtag-event'
 
 @Component({
   selector: 'app-privacy-policy',
@@ -12,7 +12,7 @@ export class PrivacyPolicyComponent implements OnInit {
   constructor(private app: AppComponent) { }
 
   ngOnInit(): void {
-    this.setVisitPage();
+    this.setVisitPage()
   }
 
   private setVisitPage(): void {
@@ -25,7 +25,7 @@ export class PrivacyPolicyComponent implements OnInit {
       }
     }
 
-    this.app.setEventAnalytics(gtagEvent);
+    this.app.setEventAnalytics(gtagEvent)
   }
 
 }

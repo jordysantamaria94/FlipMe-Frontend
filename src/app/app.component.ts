@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import { GtagEvent } from './models/gtag-event';
+import { Component, OnInit } from '@angular/core'
+import Swal from 'sweetalert2'
+import { GtagEvent } from './models/gtag-event'
 
-declare var gtag: any;
+declare var gtag: any
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ declare var gtag: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'FrontEnd';
+  title = 'FrontEnd'
 
   Toast = Swal.mixin({
     toast: true,
@@ -53,6 +53,6 @@ export class AppComponent {
   }
 
   setEventAnalytics(gtagEvent: GtagEvent) {
-    gtag('event', gtagEvent.name_event, gtagEvent.params);
+    gtag('event', gtagEvent.name_event, gtagEvent.params)
   }
 }
