@@ -1,0 +1,13 @@
+<nav class="mt-4">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled" [ngClass]="{disabled: (dataPagination?.current_page! - 1) == 0}">
+            <a class="page-link" tabindex="-1" aria-disabled="true" (click)="lastPage()">Anterior</a>
+        </li>
+        <li class="page-item active" aria-current="page">
+            <a class="page-link" href="#">{{ dataPagination?.current_page! }}</a>
+        </li>
+        <li class="page-item" [ngClass]="{disabled: dataPagination?.current_page! == dataPagination?.last_page!}">
+            <a class="page-link" (click)="nextPage()">Siguiente</a>
+        </li>
+    </ul>
+</nav>

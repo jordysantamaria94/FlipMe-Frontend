@@ -1,0 +1,50 @@
+<div class="container mt-5" *ngIf="playgame">
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-5 text-center">
+
+            <h2 class="fBold">{{ timeLeft }}</h2>
+
+            <div class="progress mb-4" style="height: 20px;">
+                <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{width: progressPercentage}"
+                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-3">
+            <app-card [questionCard]="card" [answers]="answers" [checkAnswer]="checkAnswer" [showAnswer]="showAnswer"
+                [answer]="answer" [nextQuestion]="nextQuestion"></app-card>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5" *ngIf="!playgame">
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6 text-center">
+            <h3 class="fMedium">Tu resultado es: </h3>
+            <h2 class="fBold">{{ score }} de {{ cards.length }}</h2>
+            <h3 class="fBold mt-4">
+                <span *ngIf="score === 0">¡Vuelve a intentarlo, no te rindas!</span>
+                <span *ngIf="score > 0 && score < cards.length">¡Sigue intentandolo, vas por buen camino!</span>
+                <span *ngIf="score === cards.length">¡Felicitaciones!</span>
+            </h3>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <img *ngIf="score === 0" src="assets/images/dinosaurs/048-exercise.png" alt="exercise"
+                        class="img-fluid w-75">
+                    <img *ngIf="score > 0 && score < cards.length" src="assets/images/dinosaurs/001-surprise.png"
+                        alt="surprise" class="img-fluid w-75">
+                    <img *ngIf="score === cards.length" src="assets/images/dinosaurs/049-happy.png" alt="happy"
+                        class="img-fluid w-75">
+                </div>
+            </div>
+
+            <button class="btn btn-success mt-4" (click)="resetGame()">Intentarlo nuevamente</button>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,24 @@
+.bg-secondary {
+    border-radius: 10px !important;
+    background: linear-gradient(rgb(104,246,218), rgb(94,60,187)) !important;
+    color: white !important;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.display-5 {
+    color: white !important;
+}
+
+.title {
+    color: #010101 !important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #F96D4A !important;
+    border-radius: 30px;
+}
+
+.nav-link {
+    color: #010101;
+}

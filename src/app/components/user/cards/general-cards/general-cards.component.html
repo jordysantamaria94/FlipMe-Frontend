@@ -1,0 +1,37 @@
+<div class="container mt-5">
+    <div class="row bg-secondary p-5 mb-2">
+        <div class="col-md-12">
+            <h2 class="display-5 title fBold">{{ nameDeck }}</h2>
+            <p class="description fMedium">{{ descriptionDeck }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+
+    <div class="row d-flex justify-content-between mb-2">
+        <div class="col-md-4">
+            <h2 class="fBold">Cartas</h2>
+        </div>
+        <div class="col-md-4 text-end">
+            <button class="btn btn-success" [routerLink]="['/user/card/add', idDeck]">
+                Agregar
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="cards.length > 0">
+        <div class="col-md-3" *ngFor="let card of cards">
+            <app-card-preview [preview]="card" [edition]="true" [removeElement]="removeElement"></app-card-preview>
+        </div>
+
+        <app-pagination [getData]="getCardsDeck" [dataPagination]="dataPagination"></app-pagination>
+    </div>
+
+    <div *ngIf="cards.length === 0" class="row d-flex justify-content-center">
+        <div class="col-md-6 text-center">
+            <h3>Ninguna carta ha sido creada</h3>
+        </div>
+    </div>
+</div>

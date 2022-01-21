@@ -1,0 +1,29 @@
+<div *ngIf="cookies" class="cookie">
+    <div class="text-end mb-1">
+        <span (click)="closeCookies()" class="times-cookie">
+            <i class="fas fa-times"></i>
+        </span>
+    </div>
+    <p class="text-center">
+        Utilizamos cookies de terceros para generar estadísticas de audiencia y mostrar publicidad personalizada
+        analizando tu navegación. Si sigues navegando estarás aceptando su uso. <a class="fBold more"
+            [routerLink]="['/politica-privacidad']" (click)="closeCookies()">Más información</a>
+    </p>
+</div>
+
+<footer class="mt-5">
+    <div class="row justify-content-center p-5 w-100">
+        <div class="col-md-10">
+            <h2 class="display-3 fBold">FlipMe <span class="display-6 fBold">Cards</span> </h2>
+            <h4 class="fBold mb-3">ACERCA DE</h4>
+            <p>NOSOTROS</p>
+            <p>
+                <a [routerLink]="['/politica-privacidad']">POLITICA DE PRIVACIDAD</a>
+            </p>
+            <p>
+                <a [routerLink]="['/condiciones-servicio']">CONDICIONES DE USO</a>
+            </p>
+            <p class="text-center">Beta Versión 0.0.3 © 2022 FlipMe</p>
+        </div>
+    </div>
+</footer>

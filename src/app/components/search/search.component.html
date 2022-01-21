@@ -1,0 +1,18 @@
+<div class="container mt-4">
+
+    <h2 class="display-5 mt-3">
+        <span class="fBold">Busqueda: </span>
+        {{ search }}
+    </h2>
+
+    <div class="col-md-12">
+        <div class="row" *ngIf="decks.length > 0">
+            <div class="col-md-4 m-2" *ngFor="let deck of decks">
+                <app-deck [deck]="deck" [redirect]="'deck'"></app-deck>
+            </div>
+        </div>
+        <div class="row" *ngIf="decks.length === 0">
+            <h3>No se encontraron barajas</h3>
+        </div>
+    </div>
+</div>

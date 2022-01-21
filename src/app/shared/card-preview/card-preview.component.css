@@ -1,0 +1,23 @@
+.card {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border: 0px !important;
+    border-radius: 10px !important;
+    height: 200px !important;
+}
+
+.card-title {
+    color: #424242 !important;
+}
+
+.card img {
+    border-radius: 10px 10px 0px 0px !important;
+}
+
+.btn {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 5px !important;
+}
+
+.text-end {
+    padding-right: 15px;
+}

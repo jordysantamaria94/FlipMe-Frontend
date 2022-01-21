@@ -1,0 +1,67 @@
+<a *ngIf="!edition" [routerLink]="['/deck', deck.id, convertNameToUrl(deck.name!)]">
+    <div class="row deck">
+        <!-- <div class="col-md-4 p-2">
+            <div class="image" [ngStyle]="{'background-image': 'url('+deck.image+')'}">
+            </div>
+        </div> -->
+        <div class="col-md-12 pt-3">
+            <h4 class="title fBold">{{ deck.name }}</h4>
+            <p class="description fMedium">{{ deck.description }}</p>
+            <p *ngIf="deck.created_by">
+                <small class="text-muted fBold">
+                    {{ deck.created_by }}
+                    <i *ngIf="deck.created_by === 'FlipMe'" class="fas fa-check-circle"></i>
+                </small>
+            </p>
+        </div>
+    </div>
+</a>
+
+
+<div *ngIf="edition" class="row deck">
+    <!-- <div class="col-md-4 p-2">
+        <div class="image" [ngStyle]="{'background-image': 'url('+deck.image+')'}">
+        </div>
+    </div> -->
+    <div class="col-md-12 pt-3">
+
+        <div *ngIf="edition" class="nav-item dropdown float-end text-end">
+            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="fas fa-ellipsis-v"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                    <a class="dropdown-item" [routerLink]="['/user/cards/deck', deck.id]">Agregar tarjetas</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" [routerLink]="['/user/deck/update', deck.id]">Editar baraja</a>
+                </li>
+                <li>
+                    <a class="dropdown-item" [routerLink]="['/user/deck/stats', deck.id]">Estadisticas</a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <div class="dropdown-item" (click)="copyLink(deck)">Compartir baraja</div>
+                </li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <div class="dropdown-item remove" (click)="onDelete(deck.id!)">Eliminar baraja</div>
+                </li>
+            </ul>
+        </div>
+
+        <h4 class="title fBold">{{ deck.name }}</h4>
+        <p class="description fMedium">{{ deck.description }}</p>
+        <p *ngIf="deck.created_by">
+            <small class="text-muted">Por: {{ deck.created_by }}</small>
+        </p>
+        <p>
+            <small class="text-muted fBold">{{ (deck.is_private === 1) ? "Privada" : "Publica" }}</small>
+        </p>
+    </div>
+</div>

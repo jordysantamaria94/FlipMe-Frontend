@@ -1,0 +1,11 @@
+.signup {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.custom-modal {
+    border-radius: 10px !important;
+    border: 0px !important;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 16%), 0 0px 0px rgb(0 0 0 / 23%) !important;
+    padding: 25px !important;
+}

@@ -1,0 +1,88 @@
+<div class="container mt-2">
+    <div class="row d-flex justify-content-center p-3">
+        <div class="col-md-4 card p-4">
+            <h2 class="fBold mb-4">
+                <img src="assets/images/dinosaurs/018-drawing.png" alt="Signup" class="img-fluid dinosaur">
+                Nueva tarjeta
+            </h2>
+            <form [formGroup]="cardForm" (ngSubmit)="createCard()">
+                <div class="mb-3">
+                    <label for="questionInput" class="form-label fBold">Pregunta *</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control"
+                            [ngClass]="{ 'is-invalid': cardForm.controls.question.errors?.required, 'is-valid': !cardForm.controls.question.errors?.required }"
+                            id="questionInput" name="question" placeholder="¿Cual es...?" autocomplete="off"
+                            formControlName="question" maxlength="300" required>
+                        <div *ngIf="cardForm.controls.question.errors?.required" class="invalid-feedback">
+                            Es necesario colocar una pregunta
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="answerInputOne" class="form-label fBold">Primer respuesta *</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control w-100" id="answerInputOne" name="answerOne"
+                            placeholder="Es..."
+                            [ngClass]="{ 'is-invalid': cardForm.controls.answerOne.errors?.required, 'is-valid': !cardForm.controls.answerOne.errors?.required }"
+                            autocomplete="off" formControlName="answerOne" maxlength="500" required>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="radio" formControlName="radioAnswer"
+                                id="flexRadioAnswerOne" value="1">
+                            <label class="form-check-label fMedium" for="flexRadioAnswerOne">
+                                Esta es la respuesta correcta
+                            </label>
+                        </div>
+                        <div *ngIf="cardForm.controls.answerOne.errors?.required" class="invalid-feedback">
+                            Es necesario colocar una respuesta
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="answerInputTwo" class="form-label fBold">Segunda respuesta *</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control w-100" id="answerInputOne" name="answerTwo"
+                            placeholder="Es..."
+                            [ngClass]="{ 'is-invalid': cardForm.controls.answerTwo.errors?.required, 'is-valid': !cardForm.controls.answerTwo.errors?.required }"
+                            autocomplete="off" formControlName="answerTwo" maxlength="500" required>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="radio" formControlName="radioAnswer"
+                                id="flexRadioAnswerTwo" value="2">
+                            <label class="form-check-label fMedium" for="flexRadioAnswerTwo">
+                                Esta es la respuesta correcta
+                            </label>
+                        </div>
+                        <div *ngIf="cardForm.controls.answerTwo.errors?.required" class="invalid-feedback">
+                            Es necesario colocar una respuesta
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="answerInputThree" class="form-label fBold">Tercer respuesta *</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control w-100" id="answerInputOne" name="answerThree"
+                            placeholder="Es..."
+                            [ngClass]="{ 'is-invalid': cardForm.controls.answerThree.errors?.required, 'is-valid': !cardForm.controls.answerThree.errors?.required }"
+                            autocomplete="off" formControlName="answerThree" maxlength="500" required>
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="radio" formControlName="radioAnswer"
+                                id="flexRadioAnswerThree" value="3">
+                            <label class="form-check-label fMedium" for="flexRadioAnswerThree">
+                                Esta es la respuesta correcta
+                            </label>
+                        </div>
+                        <div *ngIf="cardForm.controls.answerThree.errors?.required" class="invalid-feedback">
+                            Es necesario colocar una respuesta
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="descAnswerInput" class="form-label fBold">Texto adicional a la respuesta
+                        correcta</label>
+                    <textarea formControlName="descriptionAnswer" id="descAnswerInput" class="form-control"
+                        placeholder="Recuerda que la respuesta es..." maxlength="255" autocomplete="off"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success fMedium w-100">Crear carta</button>
+            </form>
+        </div>
+    </div>
+</div>

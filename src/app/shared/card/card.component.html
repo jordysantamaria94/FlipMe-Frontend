@@ -1,0 +1,40 @@
+<div *ngIf="!answer" class="card">
+    <div class="card-body d-flex align-items-center text-center">
+        <h2 class="card-title fBold w-100">{{ questionCard?.question }}</h2>
+    </div>
+</div>
+
+<div *ngIf="answer" class="card" [ngClass]="{'answer-success': answer === 'Correcto', 'answer-error': answer === 'Incorrecto'}">
+    <div class="card-body d-flex align-items-center text-center">
+        <h2 *ngIf="answer" class="card-title fBold w-100">
+            <span>{{ answer }}</span>
+        </h2>
+    </div>
+</div>
+
+<div *ngFor="let answer of answers; let i = index">
+    <button *ngIf="!showAnswer" class="btn btn-outline-success fMedium w-100 mt-3" (click)="answerIsTrue(answer.is_true, i)">{{ answer.answer }}</button>
+</div>
+
+<div *ngIf="showAnswer" class="text-center mt-4">
+    <p class="fBold mb-2">
+        {{ questionCard?.question }}
+    </p>
+    <p>
+        La respuesta es: 
+        <span class="fBold success">{{ correct }}</span>
+    </p>
+    <p *ngIf="incorrect">
+        Tu respuesta fue: 
+        <span class="fBold error">{{ incorrect }}</span>
+    </p>
+    <p *ngIf="questionCard?.desc_answer !== ''">
+        <span class="fBold">Nota: </span>
+        <br>
+        {{ questionCard?.desc_answer }}
+    </p>
+</div>
+
+<div *ngIf="showAnswer">
+    <button class="btn btn-success w-100 next mt-4" (click)="nextQuestion()">Siguiente</button>
+</div>

@@ -1,0 +1,18 @@
+.navbar {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    background-color: #3e9491 !important;
+    color: white !important;
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+}
+
+.search {
+    border-radius: 10px 0px 0px 10px !important;
+    border: 0px solid transparent !important;
+}
+
+.btn-search {
+    border-radius: 0px 10px 10px 0px !important;
+}

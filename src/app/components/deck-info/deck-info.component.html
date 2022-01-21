@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <div class="row bg-secondary p-5 mb-2">
+        <!-- <div class="col-md-2">
+            <div *ngIf="id !== undefined" class="image"
+                [ngStyle]="{'background-image': 'url('+image+')'}">
+            </div>
+        </div> -->
+        <div class="col-md-12">
+            <h2 class="display-5 title fBold">{{ title }}</h2>
+            <p class="description fMedium">{{ description }}</p>
+            <p>
+                <small class="text-muted">
+                    Por: {{ createdby }}
+                    <i *ngIf="createdby === 'FlipMe'" class="fas fa-check-circle"></i>
+                </small>
+            </p>
+            <a *ngIf="isLogged && cardsPreview.length > 0" class="btn btn-success mt-2 w-25" [routerLink]="['/play', id]">¡Comenzar!</a>
+            <button *ngIf="!isLogged && cardsPreview.length > 0" class="btn btn-success mt-2 w-25" data-bs-toggle="modal" data-bs-target="#signInModal">¡Comenzar!</button>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row mt-3 mb-3">
+        <div class="col-md-12">
+            <h2 class="fBold">Cards</h2>
+        </div>
+    </div>
+    <div *ngIf="cardsPreview.length > 0" class="row">
+        <div class="col-md-3" *ngFor="let card of cardsPreview">
+            <app-card-preview [preview]="card"></app-card-preview>
+        </div>
+    </div>
+
+    <div *ngIf="cardsPreview.length === 0" class="row d-flex justify-content-center">
+        <div class="col-md-6 text-center">
+            <h3>Ninguna carta ha sido creada</h3>
+        </div>
+    </div>
+</div>
+
+<app-signin-modal [changeLogged]="changeLogged"></app-signin-modal>
+<app-signup-modal [changeLogged]="changeLogged"></app-signup-modal>

@@ -1,0 +1,33 @@
+.card {
+    height: 300px !important;
+}
+
+.card img {
+    border-radius: 10px 10px 0px 0px !important;
+}
+
+.next {
+    border-radius: 50px !important;
+}
+
+.answer-success {
+    background-color: #4caf50 !important;
+}
+
+.answer-success .card-title span, .answer-error .card-title span {
+    color: white !important;
+}
+
+
+.answer-error {
+    background-color: #f44336 !important;
+    color: white !important;
+}
+
+.success {
+    color: #4caf50 !important;
+}
+
+.error {
+    color: #f44336 !important;
+}

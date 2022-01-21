@@ -1,0 +1,149 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700;900&display=swap");
+
+html {
+    height: 100% !important;
+}
+
+body {
+    background-color: #fafafa !important;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100% !important;
+}
+
+app-footer {
+    margin-top: auto !important;
+}
+
+.fExtraLight {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+}
+
+.fLight {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+}
+
+.fMedium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+.fBold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+}
+
+.fBlack {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+}
+
+/* MAIN COLORS */
+
+.bg-principal {
+    background-color: #3e9491 !important;
+}
+
+.bg-secondary {
+    background-color: #61cac5 !important;
+}
+
+.bg-alternative {
+    background-color: #fd9561 !important;
+}
+
+.bg-alt-secondary {
+    background-color: #d7b10a !important;
+}
+
+.fn-principal {
+    color: #0e455b !important;
+}
+
+.fn-secondary {
+    color: #61cac5 !important;
+}
+
+.fn-alternative {
+    color: #fd9561 !important;
+}
+
+.fn-alt-secondary {
+    color: #d7b10a !important;
+}
+
+/* BUTTONS STYLES */
+
+.btn {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 5px !important;
+    border: 0px solid !important;
+}
+
+.btn-success {
+    background-color: #3e9491 !important;
+    border-color: #3e9491 !important;
+}
+
+.btn-outline-success {
+    border-color: #3e9491 !important;
+    color: #3e9491 !important;
+}
+
+.btn-outline-success:hover {
+    border-color: #3e9491 !important;
+    background-color: #3e9491 !important;
+    color: white !important;
+}
+
+.btn-success,
+.btn-primary,
+.btn-danger {
+    border-radius: 25px !important;
+}
+
+.btn-danger {
+    background-color: #b6270d !important;
+    border-color: #b6270d !important;
+}
+
+.btn-primary {
+    background-color: #419ad9 !important;
+    border-color: #419ad9 !important;
+}
+
+/* FORM STYLES */
+
+.form-control, .form-select {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 0px 0px rgba(0, 0, 0, 0.23);
+    border: 0px solid !important;
+    border-radius: 5px !important;
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
+}
+
+/* TITLE STYLES */
+
+h2 {
+    color: #212121 !important;
+}
+
+/* CARD */
+
+.card {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border: 0px !important;
+    border-radius: 10px !important;
+}
+
+.dinosaur {
+    margin-left: 15px !important;
+    width: 20% !important;
+}

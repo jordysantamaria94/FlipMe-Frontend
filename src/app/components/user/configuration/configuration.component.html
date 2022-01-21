@@ -1,0 +1,68 @@
+<div class="container mt-2">
+
+    <div class="row d-flex justify-content-center p-3">
+        <div class="col-md-6 card">
+            <h2 class="fBold text-center mb-4">
+                <img src="assets/images/dinosaurs/018-drawing.png" alt="Signup" class="img-fluid dinosaur">
+                <span>Configuración</span>
+            </h2>
+
+            <div class="row p-3 mb-3">
+                <div class="col-md-12">
+                    <form (ngSubmit)="updateConfig()" [formGroup]="userForm">
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label fBold">Nombre</label>
+                            <div class="input-group has-validation">
+                                <input type="text" class="form-control"
+                                    [ngClass]="{ 'is-invalid': userForm.controls.name.errors?.required, 'is-valid': !userForm.controls.name.errors?.required }"
+                                    id="nameInput" placeholder="Juanito Perez" autocomplete="off" formControlName="name"
+                                    maxlength="200" required>
+                                <div *ngIf="userForm.controls.name.errors?.required" class="invalid-feedback">
+                                    Es necesario colocar un nombre
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label fBold">Correo</label>
+                            <div class="input-group has-validation">
+                                <input type="text" class="form-control"
+                                    [ngClass]="{ 'is-invalid': userForm.controls.email.errors?.required, 'is-valid': !userForm.controls.email.errors?.required }"
+                                    id="emailInput" placeholder="correo@dominio.com" autocomplete="off"
+                                    formControlName="email" maxlength="200" required>
+                                <div *ngIf="userForm.controls.email.errors?.required" class="invalid-feedback">
+                                    Es necesario colocar un correo
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newPasswordInput" class="form-label fBold">Nueva Contraseña</label>
+                            <div class="input-group has-validation">
+                                <input type="password" class="form-control"
+                                    [ngClass]="{ 'is-invalid': userForm.controls.newPassword.errors?.required, 'is-valid': !userForm.controls.newPassword.errors?.required }"
+                                    id="newPasswordInput" placeholder="****" autocomplete="off" formControlName="newPassword"
+                                    maxlength="200" required>
+                                <div *ngIf="userForm.controls.newPassword.errors?.required" class="invalid-feedback">
+                                    Escribe tu nueva contraseña
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="repeatInput" class="form-label fBold">Repetir Contraseña</label>
+                            <div class="input-group has-validation">
+                                <input type="password" class="form-control"
+                                    [ngClass]="{ 'is-invalid': userForm.controls.repeat.errors?.required, 'is-valid': !userForm.controls.repeat.errors?.required }"
+                                    id="repeatInput" placeholder="****" autocomplete="off" formControlName="repeat"
+                                    maxlength="200" required>
+                                <div *ngIf="userForm.controls.repeat.errors?.required" class="invalid-feedback">
+                                    Es necesario repetir la nueva contraseña
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success fMedium w-100">Actualizar</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

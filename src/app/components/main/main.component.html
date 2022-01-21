@@ -1,0 +1,44 @@
+<div class="container mt-4">
+
+    <div *ngIf="favsDecks.length > 0" class="row bg-fav-comunity p-5 mb-4">
+        <div class="col-md-4">
+            <img src="assets/images/dinosaurs/037-space.png" alt="Dinosaur" class="img-fluid w-25">
+            <h2 class="display-5 mt-3 fBlack">FAVORITAS COMUNIDAD</h2>
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-6 m-2" *ngFor="let deck of favsDecks">
+                    <app-deck [deck]="deck" [redirect]="'deck'"></app-deck>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="OriginalsDecks.length > 0" class="row bg-orig-flipme p-5 mb-4">
+        <div class="col-md-4">
+            <img src="assets/images/dinosaurs/002-artist.png" alt="Dinosaur" class="img-fluid w-25">
+            <h2 class="display-5 mt-3 fBlack">ORIGINALES DE FLIPME</h2>
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-6 m-2" *ngFor="let deck of OriginalsDecks">
+                    <app-deck [deck]="deck" [redirect]="'deck'"></app-deck>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="recentlysDecks.length > 0" class="row bg-recientes p-5">
+        <div class="col-md-4">
+            <img src="assets/images/dinosaurs/028-painter.png" alt="Dinosaur" class="img-fluid w-25">
+            <h2 class="display-5 mt-3 fBlack">RECIENTES</h2>
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-6" *ngFor="let deck of recentlysDecks">
+                    <app-deck [deck]="deck" [redirect]="'deck'"></app-deck>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

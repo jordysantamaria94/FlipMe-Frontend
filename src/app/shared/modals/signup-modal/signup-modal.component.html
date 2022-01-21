@@ -1,0 +1,46 @@
+<div class="modal fade" id="signUnModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content custom-modal">
+            <div class="modal-body">
+                <h2 class="fBold mb-4 text-center">
+                    <span>Crea tu perfil</span>
+                    <img src="assets/images/dinosaurs/044-worker.png" alt="Signup" class="img-fluid dinosaur">
+                </h2>
+                <form (ngSubmit)="signUp(sendForm)" #sendForm="ngForm">
+                    <div class="mb-3">
+                        <label for="nameInput" class="form-label fMedium">Nombre</label>
+                        <input type="text" class="form-control" id="nameInput" name="name"
+                            placeholder="Juanito Gutierritoz" ngModel>
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailInput" class="form-label fMedium">Correo</label>
+                        <input type="email" class="form-control" id="emailInput" name="email"
+                            placeholder="name@example.com" ngModel>
+                    </div>
+                    <div class="mb-3">
+                        <label for="passwordInput" class="form-label fMedium">Contraseña</label>
+                        <input type="password" class="form-control" id="passwordInput" name="password"
+                            placeholder="*****" required ngModel>
+                    </div>
+
+                    <button type="submit" class="btn btn-success fMedium w-100">Crear cuenta</button>
+                </form>
+                <!-- <hr>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button class="btn btn-primary w-100 mb-3 fMedium" (click)="signInWithFB()">
+                            <i class="fab fa-facebook-f"></i>
+                            Facebook
+                        </button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-danger w-100 fMedium" (click)="signInWithGoogle()">
+                            <i class="fab fa-google"></i>
+                            Google
+                        </button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

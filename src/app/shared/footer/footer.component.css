@@ -1,0 +1,29 @@
+footer {
+    background-color: #F96D4A !important;
+    color: white !important;
+}
+
+.display-3, h4, a {
+    color: white !important;
+    text-decoration: none;
+}
+
+.cookie {
+    background-color: #61cac5;
+    width: 100% !important;
+    margin: 0px !important;
+    padding: 25px;
+    color: #212121;
+    position: fixed;
+    z-index: 99;
+    bottom: 0%;
+    opacity: 1;
+}
+
+.more {
+    color: #212121 !important;
+}
+
+.times-cookie {
+    cursor: pointer !important;
+}
