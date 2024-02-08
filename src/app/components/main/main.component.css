@@ -19,6 +19,21 @@
     margin-right: 0px;
 }
 
-.display-5 {
-    color: white !important;
+.search {
+    border-radius: 10px 0px 0px 10px !important;
+    border: 0px solid #BDBDBD !important;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.btn-search {
+    border-radius: 0px 10px 10px 0px !important;
+    background-color: #00C853 !important;
+    border: 0px solid transparent !important;
+    padding-bottom: 12px;
+    padding-top: 12px;
+}
+
+.icon-cat {
+    width: 60px;
 }

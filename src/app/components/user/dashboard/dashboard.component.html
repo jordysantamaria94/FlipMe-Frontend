@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <div class="row bg-secondary p-5 mb-2">
+    <div class="row mb-2">
         <div class="col-md-12">
             <h4 class="fMedium">Hola de nuevo</h4>
             <h2 class="display-5">
@@ -16,8 +16,6 @@
                 <div class="nav nav-pills" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="nav-decks-tab" data-bs-toggle="tab" data-bs-target="#nav-decks"
                         type="button" role="tab" aria-controls="nav-decks" aria-selected="true">Mis Barajas</button>
-                    <!-- <button class="nav-link" id="nav-favs-tab" data-bs-toggle="tab" data-bs-target="#nav-favs"
-                        type="button" role="tab" aria-controls="nav-favs" aria-selected="false">Mis Favoritos</button> -->
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -27,9 +25,8 @@
                             <h2 class="display-5 fBold title">Mis Barajas</h2>
                         </div>
                         <div class="col-md-4 text-end">
-                            <button class="btn btn-success" [routerLink]="['/user/deck/add']">
+                            <button class="btn btn-success btn-success-add" [routerLink]="['/user/deck/add']">
                                 Agregar
-                                <i class="fas fa-plus"></i>
                             </button>
                         </div>
                     </div>

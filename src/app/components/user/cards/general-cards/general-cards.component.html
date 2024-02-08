@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <div class="row bg-secondary p-5 mb-2">
+    <div class="row p-5 mb-2">
         <div class="col-md-12">
             <h2 class="display-5 title fBold">{{ nameDeck }}</h2>
             <p class="description fMedium">{{ descriptionDeck }}</p>
@@ -14,9 +14,8 @@
             <h2 class="fBold">Cartas</h2>
         </div>
         <div class="col-md-4 text-end">
-            <button class="btn btn-success" [routerLink]="['/user/card/add', idDeck]">
+            <button class="btn btn-success btn-success-add" [routerLink]="['/user/card/add', idDeck]">
                 Agregar
-                <i class="fas fa-plus"></i>
             </button>
         </div>
     </div>

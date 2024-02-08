@@ -6,16 +6,12 @@
     margin-right: 0px;
 }
 
-.display-5 {
-    color: white !important;
-}
-
 .title {
     color: #010101 !important;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-    background-color: #F96D4A !important;
+    background-color: #00C853 !important;
     border-radius: 30px;
 }
 

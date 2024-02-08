@@ -1,41 +1,51 @@
 <div class="container mt-4">
 
-    <div *ngIf="favsDecks.length > 0" class="row bg-fav-comunity p-5 mb-4">
-        <div class="col-md-4">
-            <img src="assets/images/dinosaurs/037-space.png" alt="Dinosaur" class="img-fluid w-25">
-            <h2 class="display-5 mt-3 fBlack">FAVORITAS COMUNIDAD</h2>
+    <form (ngSubmit)="search(sendForm)" #sendForm="ngForm" class="mb-4">
+        <div class="row d-flex justify-content-end">
+            <div class="col-lg-2 col-md-4 col-sm-9 col-10" style="padding-right: 0;">
+                <input type="text" class="form-control search" name="search" placeholder="Buscar barajas..." ngModel>
+            </div>
+            <div class="col-lg-1 col-md-2 col-sm-3 col-2" style="padding-left: 0;">
+                <button type="submit" class="btn btn-success btn-search fMedium w-100">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
         </div>
-        <div class="col-md-8">
+    </form>
+
+    <div *ngIf="favsDecks.length > 0" class="row">
+        <div class="col-md-12">
+            <h2 class="display-6 mt-3 fBold">Favoritas de la Comunidad</h2>
+        </div>
+        <div class="col-md-12">
             <div class="row">
-                <div class="col-md-6 m-2" *ngFor="let deck of favsDecks">
+                <div class="col-md-4" *ngFor="let deck of favsDecks">
+                    <app-deck [deck]="deck" [redirect]="'deck'"></app-deck>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="OriginalsDecks.length > 0" class="row">
+        <div class="col-md-12">
+            <h2 class="display-6 mt-3 fBold">Originales de FlipMe</h2>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4" *ngFor="let deck of OriginalsDecks">
                     <app-deck [deck]="deck" [redirect]="'deck'"></app-deck>
                 </div>
             </div>
         </div>
     </div>
 
-    <div *ngIf="OriginalsDecks.length > 0" class="row bg-orig-flipme p-5 mb-4">
-        <div class="col-md-4">
-            <img src="assets/images/dinosaurs/002-artist.png" alt="Dinosaur" class="img-fluid w-25">
-            <h2 class="display-5 mt-3 fBlack">ORIGINALES DE FLIPME</h2>
+    <div *ngIf="recentlysDecks.length > 0" class="row">
+        <div class="col-md-12">
+            <h2 class="display-6 mt-3 fBold">Recientes</h2>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="row">
-                <div class="col-md-6 m-2" *ngFor="let deck of OriginalsDecks">
-                    <app-deck [deck]="deck" [redirect]="'deck'"></app-deck>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div *ngIf="recentlysDecks.length > 0" class="row bg-recientes p-5">
-        <div class="col-md-4">
-            <img src="assets/images/dinosaurs/028-painter.png" alt="Dinosaur" class="img-fluid w-25">
-            <h2 class="display-5 mt-3 fBlack">RECIENTES</h2>
-        </div>
-        <div class="col-md-8">
-            <div class="row">
-                <div class="col-md-6" *ngFor="let deck of recentlysDecks">
+                <div class="col-md-4" *ngFor="let deck of recentlysDecks">
                     <app-deck [deck]="deck" [redirect]="'deck'"></app-deck>
                 </div>
             </div>

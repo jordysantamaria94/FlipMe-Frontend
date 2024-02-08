@@ -63,11 +63,4 @@ export class NavbarComponent implements OnInit {
     this.route.navigate(['/signin'])
   }
 
-  search(sendForm: NgForm): void {
-
-    if (sendForm.value.search !== "") {
-      this.route.navigate(['/search', sendForm.value.search])
-    }
-  }
-
 }

@@ -1,14 +1,10 @@
 <a *ngIf="!edition" [routerLink]="['/deck', deck.id, convertNameToUrl(deck.name!)]">
     <div class="row deck">
-        <!-- <div class="col-md-4 p-2">
-            <div class="image" [ngStyle]="{'background-image': 'url('+deck.image+')'}">
-            </div>
-        </div> -->
         <div class="col-md-12 pt-3">
-            <h4 class="title fBold">{{ deck.name }}</h4>
+            <h5 class="title fBold">{{ deck.name }}</h5>
             <p class="description fMedium">{{ deck.description }}</p>
             <p *ngIf="deck.created_by">
-                <small class="text-muted fBold">
+                <small class="text-muted fMedium">
                     {{ deck.created_by }}
                     <i *ngIf="deck.created_by === 'FlipMe'" class="fas fa-check-circle"></i>
                 </small>
@@ -19,10 +15,6 @@
 
 
 <div *ngIf="edition" class="row deck">
-    <!-- <div class="col-md-4 p-2">
-        <div class="image" [ngStyle]="{'background-image': 'url('+deck.image+')'}">
-        </div>
-    </div> -->
     <div class="col-md-12 pt-3">
 
         <div *ngIf="edition" class="nav-item dropdown float-end text-end">

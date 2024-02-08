@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core'
+import { NgForm } from '@angular/forms'
+import { Router } from '@angular/router'
 import { NgxSpinnerService } from 'ngx-spinner'
 import { AppComponent } from 'src/app/app.component'
 import { AllDecks } from 'src/app/models/all-decks'
@@ -21,7 +23,8 @@ export class MainComponent implements OnInit {
   constructor(
     private flipmeService: FlipmeService,
     private spinner: NgxSpinnerService,
-    private app: AppComponent) { }
+    private app: AppComponent,
+    private route: Router) { }
 
   ngOnInit(): void {
     this.setVisitPage()
@@ -63,6 +66,13 @@ export class MainComponent implements OnInit {
       }, () => {
         this.spinner.hide()
       })
+  }
+
+  search(sendForm: NgForm): void {
+
+    if (sendForm.value.search !== "") {
+      this.route.navigate(['/search', sendForm.value.search])
+    }
   }
 
 }
